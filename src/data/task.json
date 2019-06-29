@@ -1,0 +1,24 @@
+{
+    "tasks":[
+        {   "titulo":"Aprender NodeJS",
+            "descripcion": "Dedicar 2 horas diarias al aprendizaje de NodeJS.",
+            "prioridad": "Alta",
+            "id":"1"
+        },
+        {   "titulo":"Crear una API Rest",
+            "descripcion": "Contruir API a largo plazo.",
+            "prioridad": "Baja",
+            "id":"2"
+        },
+        {   "titulo":"Crear Base de Datos",
+            "descripcion": "Contruir BBD Oracle, normalizada totalmente.",
+            "prioridad": "Medio",
+            "id":"3"
+        },
+        {   "titulo":"Crear Microservicios",
+            "descripcion": "Crear microservicios con NodeJS.",
+            "prioridad": "Alta",
+            "id":"4"
+        }
+    ]
+}
