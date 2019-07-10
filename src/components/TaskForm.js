@@ -5,33 +5,33 @@ class TaskForm extends Component {
     constructor(props) {
         super(props)
 
-        this.initialState={
+        this.initialState = {
             titulo: "",
-            descripcion: "",
-            prioridad: "",
-            visible:true
-        }
-        this.state = {
-            titulo:"",
             descripcion: "",
             prioridad: "",
             visible: true
         }
-        this.onFormSubmit=this.onFormSubmit.bind(this)
-        this.handleChangeInput=this.handleChangeInput.bind(this)
+        this.state = {
+            titulo: "",
+            descripcion: "",
+            prioridad: "",
+            visible: true
+        }
+        this.onFormSubmit = this.onFormSubmit.bind(this)
+        this.handleChangeInput = this.handleChangeInput.bind(this)
     }
-    
-    onFormSubmit(e){
+
+    onFormSubmit(e) {
         e.preventDefault()
         console.log(this.state)
         this.props.handleSubmit(this.state);
         this.setState(this.initialState);
     }
 
-    handleChangeInput(e){
-        const {name, value} = e.target
+    handleChangeInput(e) {
+        const { name, value } = e.target
         this.setState({
-            [name]:value
+            [name]: value
         })
         //console.log(name, value)
     }
@@ -39,16 +39,16 @@ class TaskForm extends Component {
     /*static getDerivedStateFromProps(props, state) {
         return {visible: props.visible };
     }*/
-    
-    componentWillReceiveProps(nextProps){
-        this.setState({visible:nextProps.visible})
+
+    componentWillReceiveProps(nextProps) {
+        this.setState({ visible: nextProps.visible })
     }
-    
-   
-    render(){
-        
-        if(!this.state.visible) return null
-        return(
+
+
+    render() {
+
+        if (!this.state.visible) return null
+        return (
             <div className="col-md-6 offset-md-3 mb-5">
                 <form action="" onSubmit={this.onFormSubmit}>
                     <div className="card">
@@ -57,25 +57,25 @@ class TaskForm extends Component {
                         </div>
                         <div className="card-body">
                             <div className="form-group">
-                                <input type="text" name="titulo" 
-                                value={this.state.titulo} 
-                                onChange={this.handleChangeInput}
-                                placeholder="Titulo"
-                                className="form-control"/>
+                                <input type="text" name="titulo"
+                                    value={this.state.titulo}
+                                    onChange={this.handleChangeInput}
+                                    placeholder="Titulo"
+                                    className="form-control" />
                             </div>
                             <div className="form-group">
-                                <input type="text" name="descripcion" 
-                                value={this.state.descripcion} 
-                                onChange={this.handleChangeInput}
-                                placeholder="Descripción"
-                                className="form-control"/>
+                                <input type="text" name="descripcion"
+                                    value={this.state.descripcion}
+                                    onChange={this.handleChangeInput}
+                                    placeholder="Descripción"
+                                    className="form-control" />
                             </div>
                             <div className="form-group">
-                                <input type="text" name="prioridad" 
-                                value={this.state.prioridad} 
-                                onChange={this.handleChangeInput}
-                                placeholder="Prioridad"
-                                className="form-control"/>
+                                <select name="prioridad" className="form-control" value={this.state.prioridad} onChange={this.handleChangeInput}>
+                                    <option value="Baja">Baja</option>
+                                    <option value="Medio">Medio</option>
+                                    <option value="Alta">Alta</option>
+                                </select>
                             </div>
                             <div className="form-group">
                                 <button type="submit" className="btn btn-success">Enviar</button>
